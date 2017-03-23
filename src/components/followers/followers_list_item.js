@@ -20,7 +20,7 @@ class FollowerListItem extends Component {
     render(){
 
         const user_url = `https://twitter.com/${this.props.screen_name}`;
-        const styleItemContainer = { backgroundColor : "#"+this.props.profile_background_color, backgroundImage: this.props.profile_background_image_url };
+        const styleItemContainer = { backgroundColor : "#"+this.props.profile_background_color, backgroundImage: "url("+this.props.profile_background_image_url+")", backgroundSize: "cover" };
         const styleDescription = { color : "#"+this.props.profile_text_color };
 
         return(
@@ -28,7 +28,7 @@ class FollowerListItem extends Component {
                 <div className="media" style={styleItemContainer}>
 
                     <div className="media-left">
-                        <img className="media-object img-responsive" src={this.props.profile_image_url} />
+                        <img className="media-object" src={this.props.profile_image_url} />
                     </div>
 
                     <div className="media-body">
