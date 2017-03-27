@@ -27,6 +27,9 @@ class FollowerListItem extends Component {
         };
         const styleDescription = { color : "#"+this.props.profile_text_color };
 
+        let description = this.props.description?this.props.description:"";
+        description = description.length > 109 ? description.slice(0,109)+"...": description;
+
         return(
             <li className="list-group-item followers-item" onClick={ this.onCLickList } style={styleItemContainerList}>
                 <div className="media" style={styleItemContainer}>
@@ -39,7 +42,7 @@ class FollowerListItem extends Component {
                         <h5 className="media-heading">{this.props.name}</h5>
                         <h6 className="media-heading"><a href={user_url} target="_blank">{this.props.screen_name}</a></h6>
                         <span>{this.props.location}</span>
-                        <p style={styleDescription}>{this.props.description}</p>
+                        <p style={styleDescription}>{description}</p>
                     </div>
 
                 </div>
