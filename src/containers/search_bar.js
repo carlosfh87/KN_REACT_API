@@ -30,13 +30,7 @@ class SearchBar extends Component {
 
     onFormSubmit(event){
         event.preventDefault();
-
         this.props.getFollowers(this.state);
-
-        this.setState({
-            'user1' : '',
-            'user2' : ''
-        })
     }
 
     render(){
@@ -81,10 +75,9 @@ class SearchBar extends Component {
 
 
 // Anything returned from this function  end up as props
-// on the BookList Container
+// on the followers Container
 function mapDispatchToProps(dispatch) {
-  // whenever selectBook is called, the result should be passed
-  // to all of our  reducers
+  // get the users and call the action method to get followers/friends
   return bindActionCreators({ getFollowers }, dispatch)
 }
 export default connect(null, mapDispatchToProps)(SearchBar);

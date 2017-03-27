@@ -1,0 +1,2 @@
+export const GET_FOLLOWERS = 'GET_FOLLOWERS';
+export const USER_SELECTED = 'USER_SELECTED';

@@ -1,23 +1,29 @@
 import axios from 'axios';
-// import Constants from '../constants/index';
+import * as types from './types';
 
 export function getFollowers( { user1, user2 }) {
+  let axios_instance = axios.create({
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT",
+      "Access-Control-Allow-Headers": "X-Requested-With"
+    }
+  });
+
   const API_URL = "http://knomatic-twitter.herokuapp.com/users";
   const url = `${API_URL}?user1=${user1}&user2=${user2}`;
-  const result = axios.get(url);
-  const request = {followers:[1,2,3,4], friends:[1,2]}; // complement api request
-
-  console.log(result, url);
+  const result = axios_instance.get(url);
+  // const request = {followers:[1,2,3,4], friends:[1,2]}; // api request format
 
   return {
-      type: 'GET_FOLLOWERS',
-      users: request
+      type: types.GET_FOLLOWERS,
+      payload: result
   }
 }
 
 export function userSelected(user) {
   return {
-      type: 'USER_SELECTED',
-      user: user
+      type: types.USER_SELECTED,
+      payload: user
   }
 }

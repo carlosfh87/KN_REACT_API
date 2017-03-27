@@ -18,8 +18,17 @@ class Followers extends Component {
     }
 
     render(){
-        return(
+        let error = "";
+        if( this.props.users.error ){
+            error = (
+                <div className="alert alert-danger" role="alert">
+                    <strong>{this.props.users.error.message}</strong>
+                </div>
+            );
+        }
+        return (
             <div className="col-md-12" id="followers-container">
+                { error }
                 <CustomModal user={this.props.user} />
                 <FollowersList nameList="Comun followers" users={ this.props.users.followers } />
                 <FollowersList nameList="Comun friends" users={ this.props.users.friends } />
@@ -28,6 +37,7 @@ class Followers extends Component {
     }
 }
 
+// pass the users ans the selected user to followersList and CustomModal component respectively
 function mapStateToProps({ users, user }) {
     return { users , user };
 }

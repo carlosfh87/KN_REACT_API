@@ -12,7 +12,6 @@ class FollowerListItem extends Component {
     }
 
     onCLickList (event) {
-        console.log("props",this.props);
         event.preventDefault();
         this.props.userSelected(this.props);
     }
@@ -45,9 +44,9 @@ class FollowerListItem extends Component {
 }
 
 // Anything returned from this function  end up as props
-// on the BookList Container
+// on the CustomModal Container
 function mapDispatchToProps(dispatch) {
-  // whenever selectBook is called, the result should be passed
+  // whenever userSelected is called, the result should be passed
   // to all of our  reducers
   return bindActionCreators({ userSelected }, dispatch)
 }

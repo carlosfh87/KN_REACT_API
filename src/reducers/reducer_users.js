@@ -1,14 +1,11 @@
-// import Constants from '../constants/';
+import * as types from '../actions/types';
 
 export default function ( state = { 'followers': [], 'friends' : []}, action ) {
 
-    console.log("resucer_userS action:", action.users)
-
     switch(action.type)
     {
-        case 'GET_FOLLOWERS':
-            return action.users;
-            // return {followers:[], friends:[]};
+        case types.GET_FOLLOWERS:
+            return action.payload.data;
     }
 
     return state;

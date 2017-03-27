@@ -1,11 +1,11 @@
-export default function ( state = null, action ) {
+import * as types from '../actions/types';
 
-    console.log("reducer_user action:", action)
+export default function ( state = null, action ) {
 
     switch(action.type)
     {
-        case 'USER_SELECTED':
-            return action.user;
+        case types.USER_SELECTED:
+            return action.payload;
     }
 
     return state;
