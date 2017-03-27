@@ -31,6 +31,9 @@ body{
 #followers-container .followers-list ul .followers-item{
     margin-bottom: 15px;
 }
+#followers-container .followers-list ul .followers-item .media-body{
+    cursor: pointer;
+}
 #followers-container .followers-list ul .followers-item .media-body h5{
     margin-top: 5px;
     margin-bottom: 0px;
