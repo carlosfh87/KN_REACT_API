@@ -30,8 +30,8 @@ class Followers extends Component {
             <div className="col-md-12" id="followers-container">
                 { error }
                 <CustomModal user={this.props.user} />
-                <FollowersList nameList="Comun followers" users={ this.props.users.followers } />
-                <FollowersList nameList="Comun friends" users={ this.props.users.friends } />
+                <FollowersList nameList="common followers" users={ this.props.users.followers } />
+                <FollowersList nameList="common friends" users={ this.props.users.friends } />
             </div>
         );
     }

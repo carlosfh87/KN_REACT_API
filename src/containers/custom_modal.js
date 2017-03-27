@@ -33,6 +33,8 @@ class CustomModal extends Component {
         const { profile_background_image_url } = this.props.user;
         const { profile_image_url } = this.props.user;
 
+        let bgBodyModalContainer = profile_banner_url?profile_banner_url:profile_background_image_url;
+
         let modalBgColor = profile_background_color
                         .match(/.{1,2}/g)
                         .map((val) => parseInt(val,16) )
@@ -56,7 +58,7 @@ class CustomModal extends Component {
                     <Modal.Title>{name + ' ' +this.props.user.id}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="row" style={{ backgroundImage: 'url('+profile_banner_url+')' }} >
+                    <div className="row" style={{ backgroundImage: 'url('+bgBodyModalContainer+')' }} >
                         <div className="col-md-12">
                             <div className="media">
                                 <div className="media-body" style={modalBodyBg}>

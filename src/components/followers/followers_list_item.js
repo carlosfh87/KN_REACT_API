@@ -19,11 +19,16 @@ class FollowerListItem extends Component {
     render(){
 
         const user_url = `https://twitter.com/${this.props.screen_name}`;
-        const styleItemContainer = { backgroundColor : "#"+this.props.profile_background_color, backgroundImage: "url("+this.props.profile_background_image_url+")", backgroundSize: "cover" };
+        const styleItemContainer = { backgroundColor : "#"+this.props.profile_background_color };
+        const styleItemContainerList = {
+            backgroundImage: "url("+this.props.profile_background_image_url+")",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat"
+        };
         const styleDescription = { color : "#"+this.props.profile_text_color };
 
         return(
-            <li className="list-group-item followers-item" onClick={ this.onCLickList }>
+            <li className="list-group-item followers-item" onClick={ this.onCLickList } style={styleItemContainerList}>
                 <div className="media" style={styleItemContainer}>
 
                     <div className="media-left">

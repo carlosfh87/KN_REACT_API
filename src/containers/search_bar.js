@@ -63,7 +63,7 @@ class SearchBar extends Component {
                     </div>
                     <div className="form-group">
                         <div className="col-sm-offset-2 col-sm-10">
-                            <button type="submit" className="btn btn-default">Search comun users</button>
+                            <button type="submit" className="btn btn-success">Search comun users</button>
                         </div>
                     </div>
                 </form>
