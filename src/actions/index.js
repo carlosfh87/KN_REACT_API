@@ -27,3 +27,10 @@ export function userSelected(user) {
       payload: user
   }
 }
+
+export function showLoader(show) {
+  return {
+      type: types.SHOW_LOADER,
+      payload: show
+  }
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getFollowers } from '../actions/index';
+import { getFollowers, showLoader } from '../actions/index';
 
 
 class SearchBar extends Component {
@@ -30,6 +30,7 @@ class SearchBar extends Component {
 
     onFormSubmit(event){
         event.preventDefault();
+        this.props.showLoader(true);
         this.props.getFollowers(this.state);
     }
 
@@ -78,6 +79,6 @@ class SearchBar extends Component {
 // on the followers Container
 function mapDispatchToProps(dispatch) {
   // get the users and call the action method to get followers/friends
-  return bindActionCreators({ getFollowers }, dispatch)
+  return bindActionCreators({ getFollowers, showLoader }, dispatch)
 }
 export default connect(null, mapDispatchToProps)(SearchBar);

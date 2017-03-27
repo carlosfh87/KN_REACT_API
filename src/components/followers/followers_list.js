@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { showLoader } from '../../actions/index';
 import FollowerListItem from './followers_list_item';
 
-export default class FollowersList extends Component{
+class FollowersList extends Component{
     constructor(props){
         super(props);
     }
@@ -33,4 +36,16 @@ export default class FollowersList extends Component{
             </div>
         );
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log("hide loader");
+        this.props.showLoader(false);
+    }
 }
+
+function mapDispatchToProps(dispatch) {
+  // get the users and call the action method to get followers/friends
+  return bindActionCreators({ showLoader }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(FollowersList);

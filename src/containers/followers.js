@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { showLoader } from '../actions/index';
 import CustomModal from './custom_modal';
+import Loader from '../components/Loader';
 
 import FollowersList from '../components/followers/followers_list';
 
@@ -17,6 +18,13 @@ class Followers extends Component {
         }
     }
 
+    getLoader() {
+        if( !this.props.loader ) return "";
+        return (
+            <Loader />
+        );
+    }
+
     render(){
         let error = "";
         if( this.props.users.error ){
@@ -30,6 +38,7 @@ class Followers extends Component {
             <div className="col-md-12" id="followers-container">
                 { error }
                 <CustomModal user={this.props.user} />
+                { this.getLoader() }
                 <FollowersList nameList="common followers" users={ this.props.users.followers } />
                 <FollowersList nameList="common friends" users={ this.props.users.friends } />
             </div>
@@ -38,8 +47,8 @@ class Followers extends Component {
 }
 
 // pass the users ans the selected user to followersList and CustomModal component respectively
-function mapStateToProps({ users, user }) {
-    return { users , user };
+function mapStateToProps({ users, user, loader }) {
+    return { users , user, loader };
 }
 
 export default connect(mapStateToProps)(Followers);
