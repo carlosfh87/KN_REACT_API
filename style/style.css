@@ -48,6 +48,9 @@ body{
     min-height: 130px;
     max-height: 130px;
 }
+#followers-container .followers-list ul .followers-item .media{
+    background: white!important;
+}
 #followers-container .followers-list ul .followers-item .media-body{
     cursor: pointer;
 }
